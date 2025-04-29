@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'go version'
+                sh 'GOOS=linux GOARCH=amd64 go build -o build ./cmd/app'
             }
         }
     }

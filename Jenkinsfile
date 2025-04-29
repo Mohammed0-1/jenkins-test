@@ -5,10 +5,10 @@ pipeline {
                 stage('cleanup') {
             steps {
                 // Clean up the workspace before starting the build
-                deleteDir() // This will delete everything in the workspace
+                sh 'rm -rf build '
             }
         }
-        
+
         stage('build') {
             steps {
                 // Build the Go executable

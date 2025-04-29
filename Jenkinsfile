@@ -2,6 +2,13 @@ pipeline {
     agent { docker { image 'golang:1.24.2-alpine3.21' } }
     
     stages {
+                stage('cleanup') {
+            steps {
+                // Clean up the workspace before starting the build
+                deleteDir() // This will delete everything in the workspace
+            }
+        }
+        
         stage('build') {
             steps {
                 // Build the Go executable
